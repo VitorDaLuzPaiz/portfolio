@@ -1,0 +1,381 @@
+/* ===============================
+   RESET E CONFIGURAÇÕES GERAIS
+================================*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: "Inter", Arial, sans-serif;
+}
+
+:root {
+    --bg-dark: #0b0e11;
+    --bg-light: #ffffff;
+
+    --text-dark: #e5e5e5;
+    --text-light: #1a1a1a;
+
+    --accent: #2d7dff;
+    --accent-hover: #5592ff;
+
+    --card-dark: #13161b;
+    --card-light: #f4f4f4;
+
+    --border-dark: #1f242c;
+    --border-light: #dcdcdc;
+
+    --transition: 0.3s ease;
+}
+
+/* DARK MODE */
+html[data-theme="dark"] {
+    --bg: var(--bg-dark);
+    --text: var(--text-dark);
+    --card: var(--card-dark);
+    --border: var(--border-dark);
+}
+
+/* LIGHT MODE */
+html[data-theme="light"] {
+    --bg: var(--bg-light);
+    --text: var(--text-light);
+    --card: var(--card-light);
+    --border: var(--border-light);
+}
+
+/* Corpo */
+body {
+    background: var(--bg);
+    color: var(--text);
+    transition: background var(--transition), color var(--transition);
+    padding-top: 90px;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ===============================
+   HEADER
+================================*/
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5px;
+}
+
+.logo {
+    height: 45px;
+    opacity: 0.9;
+}
+
+/* Menu */
+.header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.header nav ul li a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.header nav ul li a:hover {
+    color: var(--accent);
+}
+
+/* Botão tema */
+.theme-btn {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.theme-btn:hover {
+    background: var(--accent-hover);
+}
+
+/* ===============================
+   HERO
+================================*/
+.hero {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero .title {
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+.hero .title span {
+    color: var(--accent);
+}
+
+.hero .subtitle {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    margin-top: 15px;
+}
+
+.cta {
+    display: inline-block;
+    margin-top: 25px;
+    background: var(--accent);
+    padding: 12px 28px;
+    border-radius: 8px;
+    color: #fff;
+    text-decoration: none;
+    transition: var(--transition);
+    font-size: 1.1rem;
+}
+
+.cta:hover {
+    background: var(--accent-hover);
+}
+
+/* ===============================
+   SOBRE
+================================*/
+.about {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 80px 0;
+}
+
+.about-img img {
+    width: 160px;
+    height: 160px;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 3px solid var(--accent);
+}
+
+.about-text h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+/* ===============================
+   SERVIÇOS
+================================*/
+.services {
+    padding: 80px 0;
+    background: rgba(255,255,255,0.02);
+}
+
+.services h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: var(--card);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+}
+
+/* ===============================
+   PROJETOS
+================================*/
+.projects {
+    padding: 80px 0;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.project-card {
+    background: var(--card);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+.project-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-6px);
+}
+
+/* ===============================
+   DEPOIMENTOS
+================================*/
+.testimonials {
+    padding: 80px 0;
+    background: rgba(255,255,255,0.02);
+}
+
+.testimonials h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.testimonial {
+    padding: 25px;
+    border-radius: 12px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    font-style: italic;
+}
+
+/* ===============================
+   CONTATO
+================================*/
+.contact {
+    padding: 80px 0;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact input,
+.contact textarea {
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text);
+}
+
+.contact button {
+    background: var(--accent);
+    border: none;
+    padding: 12px;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.contact button:hover {
+    background: var(--accent-hover);
+}
+
+/* ALERTAS */
+.success {
+    color: #00ff80;
+    margin-bottom: 10px;
+}
+.error {
+    color: #ff5555;
+    margin-bottom: 10px;
+}
+
+/* ===============================
+   FOOTER
+================================*/
+.footer {
+    text-align: center;
+    padding: 25px 0;
+    opacity: 0.6;
+}
+
+/* HEADER */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    transition: background 0.3s ease, border 0.3s ease;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5px;
+}
+
+/* MENU */
+.header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.header nav ul li a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.header nav ul li a:hover {
+    color: var(--accent);
+}
+
+/* LOGO */
+.logo {
+    height: 45px;
+    opacity: 0.9;
+}
+
+/* ===============================
+   RESPONSIVIDADE
+================================*/
+@media (max-width: 900px) {
+    .about {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header nav ul {
+        gap: 15px;
+    }
+}
