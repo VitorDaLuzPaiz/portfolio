@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $mensagem = htmlspecialchars($_POST["mensagem"]);
 
     if (!$email) {
-        header("Location: index.php?error=1");
+        header("Location: index.html?error=1");
         exit;
     }
 
@@ -22,9 +22,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $headers .= "Reply-To: $email\r\n";
 
     if (mail($to, $subject, $body, $headers)) {
-        header("Location: index.php?success=1");
+        header("Location: index.html?success=1");
     } else {
-        header("Location: index.php?error=1");
+        header("Location: index.html?error=1");
     }
 }
 ?>
