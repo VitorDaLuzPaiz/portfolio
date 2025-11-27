@@ -819,7 +819,7 @@ html[data-theme="light"] .header {
     content: "";
     position: absolute;
     inset: 0;
-    padding: 2px; /* borda fina, elegante */
+    padding: 2px;
     border-radius: inherit;
 
     background: conic-gradient(
@@ -839,9 +839,9 @@ html[data-theme="light"] .header {
 
     -webkit-mask-composite: xor;
     mask-composite: exclude;
-
     animation: vdevWater 6s linear infinite;
-    opacity: .9; /* SUTIL !!! */
+    opacity: .9;
+    pointer-events: none !important; /* 🔥 AQUI A MÁGICA */
 }
 
 /* movimento da borda */
@@ -849,5 +849,6 @@ html[data-theme="light"] .header {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
 
 
