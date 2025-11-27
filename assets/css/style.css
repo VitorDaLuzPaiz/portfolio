@@ -212,10 +212,18 @@ html[data-theme="light"] .header {
     font-size: 2.6rem;
     margin-bottom: 60px;
     font-weight: 800;
-    background: linear-gradient(90deg, #7d2eff, #ff2d7c, #00d5ff);
+    background: linear-gradient(
+        90deg,
+        #002fff 20%,
+        #7a00ff 40%,
+        #d100ff 50%,
+        #ff006a 70%,
+        #ff4b2b 80%
+    );
+
     -webkit-background-clip: text;
     color: transparent;
-    text-shadow: 0 0 25px rgba(138, 43, 226, 0.35);
+    text-shadow: 0 0 18px rgba(255, 0, 122, 0.35);
 }
 
 .vdev-services-grid {
@@ -789,4 +797,57 @@ html[data-theme="light"] .header {
     .desktop-menu { display: none; }
     .mobile-menu-btn { display: block; }
 }
+
+/* =============================
+   BORDA FLUIDA ESTILO ÁGUA
+================================*/
+
+.vdev-water,
+.brand-box,
+.vdev-service,
+.vdev-project,
+.contact-option {
+    position: relative;
+    border-radius: 20px; /* mantém o mesmo arredondamento atual */
+    overflow: hidden;
+}
+
+/* camada da borda animada */
+.vdev-water::before,
+.vdev-service::before,
+.vdev-project::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 2px; /* borda fina, elegante */
+    border-radius: inherit;
+
+    background: conic-gradient(
+        from 0deg,
+        #7d2eff,
+        #ff2d7c,
+        #00d5ff,
+        #7d2eff
+    );
+
+    -webkit-mask: 
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+
+    animation: vdevWater 6s linear infinite;
+    opacity: .9; /* SUTIL !!! */
+}
+
+/* movimento da borda */
+@keyframes vdevWater {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 
