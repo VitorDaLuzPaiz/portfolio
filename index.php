@@ -11,9 +11,12 @@
 
 <header class="header">
     <div class="container">
+
+        <!-- LOGO -->
         <img src="assets/img/logo.png" class="logo" alt="VDEV Logo">
 
-        <nav>
+        <!-- MENU DESKTOP -->
+        <nav class="desktop-menu">
             <ul>
                 <li><a href="#home">Início</a></li>
                 <li><a href="#brand">Marca</a></li>
@@ -23,15 +26,47 @@
             </ul>
         </nav>
 
+        <!-- BOTÃO TEMA -->
         <button id="themeToggle" class="theme-btn">☀</button>
+
+        <!-- BOTÃO MENU MOBILE -->
+        <button class="mobile-menu-btn">
+            <i class="ri-menu-line"></i>
+        </button>
     </div>
 </header>
+
+<!-- MENU MOBILE LATERAL -->
+<div class="mobile-menu">
+    <div class="mobile-menu-header">
+        <img src="assets/img/logo.png" alt="VDEV" class="mobile-menu-logo">
+
+        <button class="close-mobile-menu">
+            <i class="ri-close-fill"></i>
+        </button>
+    </div>
+
+    <ul class="mobile-menu-list">
+        <li><a href="#home"><i class="ri-home-5-line"></i> Início</a></li>
+        <li><a href="#brand"><i class="ri-star-line"></i> Marca</a></li>
+        <li><a href="#services"><i class="ri-macbook-line"></i> Serviços</a></li>
+        <li><a href="#projects"><i class="ri-folder-line"></i> Projetos</a></li>
+        <li><a href="#contact"><i class="ri-chat-3-line"></i> Contato</a></li>
+    </ul>
+</div>
+
+<!-- OVERLAY -->
+<div class="mobile-overlay"></div>
 
 <!-- HERO -->
 <section id="home" class="hero">
     <div class="hero-content">
         <img src="assets/img/logoSlogan.png" class="hero-logo">
-        <h1 class="title">Tecnologia Performance Resultados</h1>
+        <h1 class="title">
+            <span>Tecnologia</span>
+            <span>Performance</span>
+            <span>Resultados</span>
+        </h1>
         <p class="subtitle">
             Soluções digitais modernas, rápidas e projetadas para alto impacto.
         </p>
@@ -95,13 +130,6 @@
     <h2 class="section-title">Conheça Alguns Projetos VDEV</h2>
 
     <div class="vdev-projects-grid">
-        <div class="vdev-project">
-            <div class="project-icon">
-                <i class="ri-window-line"></i>
-            </div>
-            <h3>Landing Page Premium</h3>
-            <p>Projetada para alta conversão, com visual limpo e experiência fluida.</p>
-        </div>
 
         <div class="vdev-project">
             <div class="project-icon">
@@ -109,6 +137,16 @@
             </div>
             <h3>Website Profissional</h3>
             <p>Interface moderna, elegante e otimizada para performance.</p>
+            <button class="project-btn" data-project="1">Ver Projeto</button>
+        </div>
+
+        <div class="vdev-project">
+            <div class="project-icon">
+                <i class="ri-window-line"></i>
+            </div>
+            <h3>Landing Page Premium</h3>
+            <p>Projetada para alta conversão, com visual limpo e experiência fluida.</p>
+            <button class="project-btn" data-project="2">Ver Projeto</button>
         </div>
 
         <div class="vdev-project">
@@ -117,7 +155,9 @@
             </div>
             <h3>Automações e APIs</h3>
             <p>Integrações inteligentes que conectam sistemas e otimizam rotinas.</p>
+            <button class="project-btn" data-project="3">Ver Projeto</button>
         </div>
+
     </div>
 </section>
 
@@ -166,14 +206,27 @@
                 Iniciar Conversa
             </a>
         </div>
-
     </div>
 </section>
+
+<!-- MODAL DE PROJETO (IMAGEM ÚNICA) -->
+<div id="projectModal" class="modal">
+    <div class="modal-content">
+
+        <span class="close-modal">&times;</span> <!-- BOTÃO DE FECHAR -->
+
+        <div class="modal-image-wrapper">
+            <img id="modalProjectImage" src="" alt="Projeto VDEV">
+        </div>
+
+    </div>
+</div>
 
 <footer class="footer">
     <p>© <?php echo date("Y"); ?> — VDEV Tecnologia</p>
 </footer>
 
 <script src="assets/js/script.js"></script>
+
 </body>
 </html>
