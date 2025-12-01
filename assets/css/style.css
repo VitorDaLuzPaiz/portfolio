@@ -743,7 +743,6 @@ html[data-theme="light"] .header {
    RESPONSIVO — MOBILE REAL PREMIUM
 ================================*/
 @media (max-width: 768px) {
-
     /* Ajuste do bloco HERO */
     .hero {
         padding-top: 140px;   /* maior porque o header fica mais alto */
@@ -799,56 +798,92 @@ html[data-theme="light"] .header {
 }
 
 /* =============================
-   BORDA FLUIDA ESTILO ÁGUA
+   BORDA FLUIDA ESTILO ÁGUA (NOVA)
 ================================*/
 
+/* ELEMENTOS QUE RECEBEM A BORDA ENERGÉTICA */
 .vdev-water,
 .brand-box,
 .vdev-service,
 .vdev-project,
 .contact-option {
     position: relative;
-    border-radius: 20px; /* mantém o mesmo arredondamento atual */
-    overflow: hidden;
+    border-radius: 20px;
+    overflow: hidden; /* mantém a linha dentro da div */
 }
 
-/* camada da borda animada */
+/* CAMADA DE ENERGIA */
 .vdev-water::before,
+.brand-box::before,
 .vdev-service::before,
-.vdev-project::before {
+.vdev-project::before,
+.contact-option::before {
     content: "";
     position: absolute;
     inset: 0;
-    padding: 2px;
     border-radius: inherit;
+    padding: 2px; /* espessura da borda energética */
 
-    background: conic-gradient(
-        from 0deg,
+    background: linear-gradient(
+        0deg,
         #7d2eff,
         #ff2d7c,
         #00d5ff,
         #7d2eff
     );
 
-    -webkit-mask: 
-        linear-gradient(#000 0 0) content-box,
-        linear-gradient(#000 0 0);
-    mask:
-        linear-gradient(#000 0 0) content-box,
-        linear-gradient(#000 0 0);
+    background-size: 400% 400%;
+    animation: borderFlow 4s linear infinite;
 
+    /* máscara para deixar apenas a borda visível */
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
-    animation: vdevWater 6s linear infinite;
-    opacity: .9;
-    pointer-events: none !important; /* 🔥 AQUI A MÁGICA */
+
+    pointer-events: none;
+    opacity: 0.9;
 }
 
-/* movimento da borda */
-@keyframes vdevWater {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.45);
+    border: none;
+    color: #fff;
+    font-size: 32px;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 9999;
+    transition: 0.25s ease;
 }
+
+.nav-btn:hover {
+    background: rgba(0,0,0,0.7);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.nav-left {
+    left: 10px;
+}
+
+.nav-right {
+    right: 10px;
+}
+
+/* MOVIMENTO DA ENERGIA PELA BORDA */
+@keyframes borderFlow {
+    0%   { background-position: 0% 0%; }
+    25%  { background-position: 100% 0%; }
+    50%  { background-position: 100% 100%; }
+    75%  { background-position: 0% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+
 
 
 
