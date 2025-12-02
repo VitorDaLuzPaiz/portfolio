@@ -226,7 +226,25 @@
     <p>© <?php echo date("Y"); ?> — VDEV Tecnologia</p>
 </footer>
 
+<div class="vdev-stars-layer" id="vdevStars"></div>
+
 <script src="assets/js/script.js"></script>
+
+<script>
+const starsLayer = document.getElementById("vdevStars");
+/* Criar estrelas piscando */
+for (let i = 0; i < 250; i++) {
+    const s = document.createElement("div");
+    s.classList.add("star");
+
+    s.style.top = Math.random() * 100 + "vh";
+    s.style.left = Math.random() * 100 + "vw";
+
+    // brilho aleatório
+    s.style.animationDuration = (0.2 + Math.random() * 2) + "s";
+    starsLayer.appendChild(s);
+}
+</script>
 
 </body>
 </html>

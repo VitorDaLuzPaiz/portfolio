@@ -92,7 +92,7 @@ function startAutoScroll() {
 }
 
 function animateScroll() {
-    translateY += 0.70 * direction;
+    translateY += 0.90 * direction;
     modalImg.style.transform = `translateY(${-translateY}px)`;
 
     const imgHeight = modalImg.scrollHeight;
