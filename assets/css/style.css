@@ -231,9 +231,16 @@ html[data-theme="light"] .header {
 
 .vdev-services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    /* mantém até 3 por linha, mas adapta automaticamente */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 40px;
+    /* centraliza os itens quando sobrar coluna */
     justify-content: center;
+    justify-items: center;
+    /* impede que o grid fique largo demais */
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .vdev-service {
@@ -278,10 +285,15 @@ html[data-theme="light"] .header {
 
 .vdev-projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    /* sempre tenta 3 colunas, mas não força quando faltar item */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 40px;
+    /* centraliza quando sobrar espaço */
     justify-content: center;
-    margin-top: 50px;
+    justify-items: center;
+    /* impede que fique largo demais */
+    max-width: 1100px;
+    margin: 50px auto 0;
 }
 
 .vdev-project {
@@ -379,8 +391,16 @@ html[data-theme="light"] .header {
 .service-grid {
     margin-top: 50px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-    gap: 30px;
+    /* tenta 3 colunas, mas adapta automaticamente sem quebrar */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    /* centraliza quando sobrar espaço */
+    justify-content: center;
+    justify-items: center;
+    /* evita ficar largo demais */
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .service-card {
@@ -404,10 +424,18 @@ html[data-theme="light"] .header {
 }
 
 .project-grid {
-    margin-top: 40px;
+    margin-top: 50px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-    gap: 30px;
+    /* até 3 colunas, mas adaptável */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    /* centraliza os cards quando sobrar espaço */
+    justify-content: center;
+    justify-items: center;
+    /* impede o grid de ficar largo demais */
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .project-card {
@@ -434,9 +462,17 @@ html[data-theme="light"] .header {
 
 .contact-box {
     display: grid;
+    /* até 3 colunas, adaptável */
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 40px;
     margin-top: 50px;
+    /* centralizar quando tiver 1 ou 2 itens */
+    justify-content: center;
+    justify-items: center;
+    /* evita que o grid abra demais */
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .contact-option {
@@ -884,6 +920,45 @@ html[data-theme="light"] .header {
     75%  { background-position: 0% 100%; }
     100% { background-position: 0% 0%; }
 }
+
+/* ===============================
+   RESPONSIVO — GRID 3 COLUNAS
+================================*/
+
+@media (max-width: 1024px) {
+    /* 2 colunas em tablets */
+    .vdev-services-grid,
+    .vdev-projects-grid,
+    .service-grid,
+    .project-grid,
+    .contact-box {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    /* 1 coluna no mobile */
+    .vdev-services-grid,
+    .vdev-projects-grid,
+    .service-grid,
+    .project-grid,
+    .contact-box {
+        grid-template-columns: 1fr !important;
+        justify-items: center;
+    }
+
+    /* Ajuste extra para centralizar elementos */
+    .vdev-service,
+    .vdev-project,
+    .service-card,
+    .project-card,
+    .contact-option {
+        width: 100%;
+        max-width: 420px;
+    }
+}
+
+
 
 
 
