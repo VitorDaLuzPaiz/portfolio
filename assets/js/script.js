@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ===============================
-//  PROJETOS → MODAL COM NAVEGAÇÃO + AUTO-SCROLL
+//  PROJETOS → MODAL + AUTO-SCROLL
 // ===============================
 
 const projectImages = {
@@ -37,23 +37,26 @@ let autoScrollAnimation = null;
 let translateY = 0;
 let direction = 1;
 
-
-// Abrir modal
+// ===============================
+// Abrir modal (COM BLOQUEIO DE ROLAGEM)
+// ===============================
 document.querySelectorAll(".project-btn").forEach(btn => {
     btn.addEventListener("click", () => {
+
+        // 🔥 BLOQUEAR ROLAGEM DO BODY
+        document.body.style.overflow = "hidden";
+
         currentProject = btn.dataset.project;
         currentIndex = 0;
 
         openImage();
-
         modal.classList.add("active");
 
         startAutoScroll();
     });
 });
 
-
-// Função que troca de imagem
+// Trocar imagem
 function openImage() {
     modalImg.src = projectImages[currentProject][currentIndex];
 
@@ -65,8 +68,7 @@ function openImage() {
     setTimeout(() => startAutoScroll(), 400);
 }
 
-
-// Botão próximo
+// Navegar próximo
 nextBtn.addEventListener("click", () => {
     currentIndex++;
     if (currentIndex >= projectImages[currentProject].length) {
@@ -75,7 +77,7 @@ nextBtn.addEventListener("click", () => {
     openImage();
 });
 
-// Botão anterior
+// Navegar anterior
 prevBtn.addEventListener("click", () => {
     currentIndex--;
     if (currentIndex < 0) {
@@ -84,15 +86,16 @@ prevBtn.addEventListener("click", () => {
     openImage();
 });
 
-
-// Auto-scroll
+// ===============================
+// Auto-scroll suave da imagem
+// ===============================
 function startAutoScroll() {
     cancelAnimationFrame(autoScrollAnimation);
     animateScroll();
 }
 
 function animateScroll() {
-    translateY += 0.90 * direction;
+    translateY += 0.65 * direction;
     modalImg.style.transform = `translateY(${-translateY}px)`;
 
     const imgHeight = modalImg.scrollHeight;
@@ -108,13 +111,21 @@ function stopAutoScroll() {
     cancelAnimationFrame(autoScrollAnimation);
 }
 
-// Fechar modal
+// ===============================
+// Fechar modal (LIBERAR ROLAGEM)
+// ===============================
 function closeModal() {
+
+    // 🔥 PERMITIR ROLAGEM NOVAMENTE
+    document.body.style.overflow = "";
+
     modal.classList.remove("active");
     stopAutoScroll();
 }
 
 closeBtn.addEventListener("click", closeModal);
+
+// fecha ao clicar fora
 modal.addEventListener("click", e => {
     if (e.target === modal) closeModal();
 });
@@ -143,7 +154,7 @@ function closeMobileMenu() {
 closeMobile.addEventListener("click", closeMobileMenu);
 overlay.addEventListener("click", closeMobileMenu);
 
-// fechar após clicar em um link
+// fechar ao clicar num link
 document.querySelectorAll(".mobile-menu a").forEach(link => {
     link.addEventListener("click", closeMobileMenu);
 });

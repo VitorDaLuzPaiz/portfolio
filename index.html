@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VDEV — Desenvolvimento Futurista</title>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
@@ -227,24 +228,7 @@
 </footer>
 
 <div class="vdev-stars-layer" id="vdevStars"></div>
-
 <script src="assets/js/script.js"></script>
-
-<script>
-const starsLayer = document.getElementById("vdevStars");
-/* Criar estrelas piscando */
-for (let i = 0; i < 250; i++) {
-    const s = document.createElement("div");
-    s.classList.add("star");
-
-    s.style.top = Math.random() * 100 + "vh";
-    s.style.left = Math.random() * 100 + "vw";
-
-    // brilho aleatório
-    s.style.animationDuration = (0.2 + Math.random() * 2) + "s";
-    starsLayer.appendChild(s);
-}
-</script>
 
 </body>
 </html>

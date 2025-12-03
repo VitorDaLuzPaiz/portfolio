@@ -369,7 +369,6 @@ html[data-theme="light"] .header {
 ================================*/
 .services {
     padding: 90px 0;
-    background: rgba(255,255,255,0.02);
 }
 
 .services h2 {
@@ -429,7 +428,7 @@ html[data-theme="light"] .header {
 ================================*/
 
 .contact {
-    padding: 100px 0;
+    padding: 90px 0;
     text-align: center;
 }
 
@@ -730,7 +729,7 @@ html[data-theme="light"] .header {
     left: 0;
     width: 100%;
     height: 100dvh;
-    background: rgba(0,0,0,.55);
+    background: rgba(236, 236, 236, 0.996);
     opacity: 0;
     pointer-events: none;
     transition: opacity .3s ease;
@@ -875,50 +874,6 @@ html[data-theme="light"] .header {
 
 .nav-right {
     right: 10px;
-}
-
-/* ===========================================================
-   FUNDO VDEV — ESTRELAS REALISTAS + COMETAS FUTURISTAS
-=========================================================== */
-
-.vdev-stars-layer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: -1;
-}
-
-/* Estrelas pequenas brilhando */
-.star {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background: white;
-    opacity: 0.8;
-    border-radius: 50%;
-    filter: blur(1.2px);
-    animation: starTwinkle 2s infinite ease-in-out alternate;
-}
-
-@keyframes starTwinkle {
-    from { opacity: 0.3; transform: scale(0.8); }
-    to { opacity: 1; transform: scale(1.2); }
-}
-
-@keyframes cometFall {
-    0% {
-        transform: translateY(-150px) translateX(0) rotate(var(--angle)) scaleY(0.2);
-        opacity: 0;
-    }
-    10% { opacity: 1; }
-    100% {
-        transform: translateY(900px) translateX(300px) rotate(var(--angle)) scaleY(1);
-        opacity: 0;
-    }
 }
 
 /* MOVIMENTO DA ENERGIA PELA BORDA */
